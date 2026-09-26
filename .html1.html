@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise for Sai 🎁</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Georgia,serif; overflow:hidden;
+  background:#12051f;color:white;
+}
+.slide{
+  width:100vw;height:100vh;position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;transition:transform 1s ease,opacity 1s ease;
+  overflow:hidden;
+}
+.slide1{
+  background:
+   radial-gradient(circle at 50% 45%,#662b86 0,#32114d 38%,#10051b 100%);
+}
+.slide2{
+  background:
+   radial-gradient(circle at 50% 35%,#8b3f70 0,#3b164f 42%,#10051b 100%);
+  transform:translateX(100%);
+}
+.slide1.hide{transform:translateX(-100%);opacity:0}
+.slide2.show{transform:translateX(0)}
+
+.stars{position:absolute;inset:0}
+.star{
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:white;opacity:.8;animation:twinkle 2s infinite alternate;
+}
+@keyframes twinkle{to{opacity:.15;transform:scale(.4)}}
+
+.content{position:relative;z-index:2;padding:25px}
+.small{
+  text-transform:uppercase;letter-spacing:5px;
+  color:#ffd6f4;font-size:12px;margin-bottom:14px;
+}
+h1{
+  font-size:clamp(35px,8vw,65px);
+  margin-bottom:10px;
+  background:linear-gradient(90deg,#fff,#ffd0ed,#e4c4ff,#fff);
+  -webkit-background-clip:text;color:transparent;
+}
+.hint{color:#e8d4ee;font-size:17px;margin-bottom:35px}
+
+/* Gift box */
+.gift{
+  width:190px;height:165px;position:relative;margin:0 auto;
+  cursor:pointer;filter:drop-shadow(0 15px 25px #0008);
+  animation:float 2s ease-in-out infinite;
+}
+@keyframes float{50%{transform:translateY(-10px)}}
+.box{
+  position:absolute;bottom:0;left:5px;width:180px;height:115px;
+  background:linear-gradient(135deg,#ff70bd,#d83b8e);
+  border-radius:8px 8px 15px 15px;
+}
+.box:before{
+  content:"";position:absolute;left:76px;top:0;width:28px;height:115px;
+  background:#ffd2eb;
+}
+.lid{
+  position:absolute;top:30px;left:0;width:190px;height:35px;
+  background:linear-gradient(135deg,#ff8bca,#e64b98);
+  border-radius:8px;z-index:2;
+}
+.lid:before{
+  content:"";position:absolute;left:81px;top:0;width:28px;height:35px;background:#ffe0f1;
+}
+.bow{position:absolute;top:0;left:63px;width:65px;height:45px;z-index:3}
+.bow:before,.bow:after{
+  content:"";position:absolute;width:38px;height:30px;
+  border:8px solid #ffd5ec;border-radius:50% 50% 50% 10%;
+}
+.bow:before{left:0;transform:rotate(25deg)}
+.bow:after{right:0;transform:scaleX(-1) rotate(25deg)}
+.tap{
+  margin-top:28px;font-size:16px;color:#ffd8ef;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{50%{opacity:.45}}
+
+/* Slide 2 */
+.card{
+  width:min(90%,720px);padding:38px 28px;
+  border:1px solid #ffffff30;border-radius:30px;
+  background:#ffffff12;backdrop-filter:blur(12px);
+  box-shadow:0 25px 70px #0008;
+}
+.cake{font-size:65px;margin:8px 0 15px;animation:bounce 1.5s infinite}
+@keyframes bounce{50%{transform:translateY(-7px)}}
+.message{
+  max-width:590px;margin:auto;
+  font-size:17px;line-height:1.8;color:#f8eafa;
+}
+.name{color:#ffd1ed;font-size:28px;margin:8px 0 14px}
+.next{
+  margin-top:25px;border:0;border-radius:30px;padding:12px 24px;
+  background:linear-gradient(90deg,#ffd0ea,#d9b9ff);
+  color:#35133f;font-weight:bold;cursor:pointer;
+}
+.confetti{
+  position:fixed;top:-20px;width:9px;height:14px;z-index:10;
+  animation:fall 3.5s linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 -->
+<section class="slide slide1" id="slide1">
+  <div class="stars" id="stars1"></div>
+  <div class="content">
+    <div class="small">A little surprise for my best friend</div>
+    <h1>Hey Sai! 💖</h1>
+    <p class="hint">I have something special for you...</p>
+
+    <div class="gift" onclick="openGift()">
+      <div class="bow"></div>
+      <div class="lid"></div>
+      <div class="box"></div>
+    </div>
+
+    <div class="tap">🎁 Tap the gift box 🎁</div>
+  </div>
+</section>
+
+<!-- SLIDE 2 -->
+<section class="slide slide2" id="slide2">
+  <div class="stars" id="stars2"></div>
+  <div class="content card">
+    <div class="small">For my best friend</div>
+    <div class="cake">🎂</div>
+    <h1>Happy Birthday!</h1>
+    <div class="name">Dear Sai 💕</div>
+
+    <p class="message">
+      Happy Birthday to one of the most special people in my life! 🥳<br><br>
+      I’m really lucky to have a best friend like you.
+      Thank you for all the laughs, memories, support and crazy moments we share.
+      I hope this new year of your life brings you lots of happiness,
+      success, peace and beautiful memories.<br><br>
+      Never stop smiling, keep shining and always be the amazing person you are.
+      May all your dreams come true! ✨<br><br>
+      <strong>Happy Birthday once again, Sai! 🎉💖</strong>
+    </p>
+
+    <button class="next" onclick="celebrate()">✨ One More Surprise</button>
+  </div>
+</section>
+
+<script>
+function makeStars(id){
+  const box=document.getElementById(id);
+  for(let i=0;i<75;i++){
+    const s=document.createElement("div");
+    s.className="star";
+    s.style.left=Math.random()*100+"%";
+    s.style.top=Math.random()*100+"%";
+    s.style.animationDelay=Math.random()*2+"s";
+    box.appendChild(s);
+  }
+}
+makeStars("stars1"); makeStars("stars2");
+
+function openGift(){
+  document.getElementById("slide1").classList.add("hide");
+  document.getElementById("slide2").classList.add("show");
+  setTimeout(celebrate,700);
+}
+
+function celebrate(){
+  const colors=["#ff7bc5","#ffd166","#c7a4ff","#8de8ff","#ffffff"];
+  for(let i=0;i<120;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"%";
+    c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDelay=Math.random()*1.2+"s";
+    c.style.transform="rotate("+Math.random()*360+"deg)";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+</script>
+</body>
+</html>
